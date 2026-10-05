@@ -233,3 +233,31 @@ body.modal-open {
 .win__result strong {
   color: var(--color-black);
 }
+
+.leaderboard {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.leaderboard th,
+.leaderboard td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--color-gray-light);
+}
+
+.leaderboard th {
+  font-weight: 600;
+  color: var(--color-gray);
+}
+
+.leaderboard tbody tr:first-child td {
+  font-weight: 700;
+  background: var(--color-yellow-light);
+}
+
+.leaderboard__empty {
+  margin: 0;
+  text-align: center;
+  color: var(--color-gray);
+}
