@@ -13,7 +13,7 @@ export function showWinModal({ moves, onNewGame }) {
   ]);
 
   createModal({
-    title: 'Победа! 🎉',
+    title: 'Победа!',
     content,
     actions: [{ text: 'Новая игра', onClick: onNewGame }],
   }).open();
