@@ -105,7 +105,8 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
-  max-width: 520px;
+  width: min(100%, 520px, calc(100dvh - 180px));
+  min-width: 240px;
   margin: 0 auto;
 }
 
@@ -131,6 +132,10 @@ body {
   height: 100%;
   transform-style: preserve-3d;
   transition: transform 0.4s;
+}
+
+.card:not(.card--open):hover .card__inner {
+  transform: translateY(-4px);
 }
 
 .card--open .card__inner {
@@ -191,8 +196,19 @@ body.modal-open {
   box-shadow: 0 12px 40px hsl(210deg 7% 11% / 30%);
 }
 
+.modal[open] {
+  animation: modal-appear 0.2s ease-out;
+}
+
 .modal::backdrop {
   background: hsl(210deg 7% 11% / 60%);
+}
+
+@keyframes modal-appear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
 }
 
 .modal__window {
@@ -260,4 +276,58 @@ body.modal-open {
   margin: 0;
   text-align: center;
   color: var(--color-gray);
+}
+
+@media (width <= 480px) {
+  .app {
+    padding: 12px;
+  }
+
+  .header {
+    padding-bottom: 12px;
+  }
+
+  .header__title {
+    width: 100%;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .header__actions {
+    width: 100%;
+  }
+
+  .header__actions .button {
+    flex: 1;
+    padding-inline: 8px;
+    font-size: 0.875rem;
+    white-space: nowrap;
+  }
+
+  .stats {
+    margin-bottom: 14px;
+    font-size: 1rem;
+  }
+
+  .board {
+    gap: 8px;
+  }
+
+  .modal__window {
+    padding: 20px 16px;
+  }
+
+  .leaderboard th,
+  .leaderboard td {
+    padding: 8px 6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0s !important;
+    animation-duration: 0s !important;
+  }
 }
