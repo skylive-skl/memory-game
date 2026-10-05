@@ -34,8 +34,6 @@ export function createModal({ title, content, actions = [] }) {
     ],
   );
 
-  // Клик считается кликом по фону, только если и нажатие, и отпускание были на самом <dialog>
-  // (например, выделение текста с отпусканием мыши за окном не должно его закрывать).
   let isPointerDownOnBackdrop = false;
 
   dialog.addEventListener('pointerdown', (event) => {
@@ -48,7 +46,6 @@ export function createModal({ title, content, actions = [] }) {
     }
   });
 
-  // Срабатывает при любом способе закрытия, включая Escape.
   dialog.addEventListener('close', () => {
     document.body.classList.remove(SCROLL_LOCK_CLASS);
     dialog.remove();
