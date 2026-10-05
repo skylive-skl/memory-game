@@ -6,7 +6,6 @@ const MOVE_FORMS = ['ход', 'хода', 'ходов'];
 
 export function showWinModal({ moves, onNewGame }) {
   const content = createElement('div', { className: 'win' }, [
-    createElement('p', { className: 'win__text', text: 'Все пары найдены!' }),
     createElement('p', { className: 'win__result' }, [
       'Ваш результат: ',
       createElement('strong', { text: `${moves} ${pluralize(moves, MOVE_FORMS)}` }),
