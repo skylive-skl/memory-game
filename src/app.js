@@ -17,7 +17,7 @@ export function createApp(root) {
   });
 
   const header = createHeader({
-    onNewGame: () => {},
+    onNewGame: () => game.start(),
     onShowLeaderboard: () => {},
   });
 
