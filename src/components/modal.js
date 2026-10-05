@@ -1,0 +1,67 @@
+import { createElement } from '../utils/create-element.js';
+
+const SCROLL_LOCK_CLASS = 'modal-open';
+let modalCount = 0;
+
+export function createModal({ title, content, actions = [] }) {
+  modalCount += 1;
+  const titleId = `modal-title-${modalCount}`;
+
+  const actionButtons = [...actions, { text: 'Закрыть', secondary: true }].map(
+    ({ text, onClick, secondary }) =>
+      createElement('button', {
+        className: secondary ? 'button button--secondary' : 'button',
+        text,
+        attrs: { type: 'button' },
+        on: {
+          click: () => {
+            close();
+            onClick?.();
+          },
+        },
+      }),
+  );
+
+  const dialog = createElement(
+    'dialog',
+    { className: 'modal', attrs: { 'aria-labelledby': titleId } },
+    [
+      createElement('div', { className: 'modal__window' }, [
+        createElement('h2', { className: 'modal__title', text: title, attrs: { id: titleId } }),
+        createElement('div', { className: 'modal__content' }, [content]),
+        createElement('div', { className: 'modal__actions' }, actionButtons),
+      ]),
+    ],
+  );
+
+  let isPointerDownOnBackdrop = false;
+
+  dialog.addEventListener('pointerdown', (event) => {
+    isPointerDownOnBackdrop = event.target === dialog;
+  });
+
+  dialog.addEventListener('click', (event) => {
+    if (isPointerDownOnBackdrop && event.target === dialog) {
+      close();
+    }
+  });
+
+  dialog.addEventListener('close', () => {
+    document.body.classList.remove(SCROLL_LOCK_CLASS);
+    dialog.remove();
+  });
+
+  function open() {
+    document.body.append(dialog);
+    document.body.classList.add(SCROLL_LOCK_CLASS);
+    dialog.showModal();
+  }
+
+  function close() {
+    if (dialog.open) {
+      dialog.close();
+    }
+  }
+
+  return { open, close };
+}
