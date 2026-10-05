@@ -3,6 +3,7 @@ import { createHeader } from './components/header.js';
 import { createStats } from './components/stats.js';
 import { createBoard } from './components/board.js';
 import { createGame } from './game/game.js';
+import { showWinModal } from './components/win-modal.js';
 
 export function createApp(root) {
   const stats = createStats();
@@ -14,6 +15,7 @@ export function createApp(root) {
       board.update(game.getCardState);
       stats.update(game.getStats());
     },
+    onWin: ({ moves }) => showWinModal({ moves, onNewGame: () => game.start() }),
   });
 
   const header = createHeader({
