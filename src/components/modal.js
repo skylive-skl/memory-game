@@ -3,12 +3,6 @@ import { createElement } from '../utils/create-element.js';
 const SCROLL_LOCK_CLASS = 'modal-open';
 let modalCount = 0;
 
-/**
- * Общая оболочка модального окна на базе <dialog>.
- * Содержимое и дополнительные кнопки передаются снаружи, кнопка «Закрыть» добавляется всегда.
- * Любая кнопка сначала закрывает окно, затем вызывает свой обработчик.
- * @param {{ title: string, content: Node, actions?: Array<{ text: string, onClick: () => void }> }} options
- */
 export function createModal({ title, content, actions = [] }) {
   modalCount += 1;
   const titleId = `modal-title-${modalCount}`;

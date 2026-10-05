@@ -1,9 +1,3 @@
-/**
- * Перемешивание Фишера — Йейтса. Возвращает новый массив, исходный не меняется.
- * @template T
- * @param {T[]} items
- * @returns {T[]}
- */
 export function shuffle(items) {
   const result = [...items];
 

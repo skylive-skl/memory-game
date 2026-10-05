@@ -3,10 +3,6 @@ import { createDeck } from './deck.js';
 export const TOTAL_PAIRS = 8;
 const MISMATCH_DELAY = 1000;
 
-/**
- * Состояние и правила игры. Ничего не знает о DOM:
- * об изменениях сообщает через колбэки.
- */
 export function createGame({ onNewDeck, onUpdate, onWin }) {
   let deck = [];
   let openIndices = [];
