@@ -1,22 +1,22 @@
-import sun from '../assets/cards/sun.svg';
-import moon from '../assets/cards/moon.svg';
-import star from '../assets/cards/star.svg';
-import heart from '../assets/cards/heart.svg';
-import leaf from '../assets/cards/leaf.svg';
-import drop from '../assets/cards/drop.svg';
-import bolt from '../assets/cards/bolt.svg';
-import flower from '../assets/cards/flower.svg';
+import deadline from '../assets/cards/deadline.svg';
+import error from '../assets/cards/error.svg';
+import everythingWorks from '../assets/cards/everything-works.svg';
+import google from '../assets/cards/google.svg';
+import howISee from '../assets/cards/how-i-see.svg';
+import lazy from '../assets/cards/lazy.svg';
+import notABug from '../assets/cards/not-a-bug.svg';
+import whatDoYouWant from '../assets/cards/what-do-you-want.svg';
 import back from '../assets/cards/back.svg';
 
 export const CARD_BACK = back;
 
 export const CARDS = [
-  { id: 'sun', name: 'Солнце', image: sun },
-  { id: 'moon', name: 'Луна', image: moon },
-  { id: 'star', name: 'Звезда', image: star },
-  { id: 'heart', name: 'Сердце', image: heart },
-  { id: 'leaf', name: 'Лист', image: leaf },
-  { id: 'drop', name: 'Капля', image: drop },
-  { id: 'bolt', name: 'Молния', image: bolt },
-  { id: 'flower', name: 'Цветок', image: flower },
+  { id: 'deadline', name: 'Дедлайн', image: deadline },
+  { id: 'error', name: 'Ошибка', image: error },
+  { id: 'everything-works', name: 'У меня всё работает', image: everythingWorks },
+  { id: 'google', name: 'Погуглю', image: google },
+  { id: 'how-i-see', name: 'Я так вижу', image: howISee },
+  { id: 'lazy', name: 'Лень наше всё', image: lazy },
+  { id: 'not-a-bug', name: 'Это не баг, это фича', image: notABug },
+  { id: 'what-do-you-want', name: 'Что надо?', image: whatDoYouWant },
 ];
