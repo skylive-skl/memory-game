@@ -2,7 +2,7 @@
 
 Игра на поиск пар: открывайте карточки, запоминайте их расположение и найдите все 8 пар за наименьшее число ходов.
 
-**Деплой:** _ссылка появится после публикации_
+**Деплой:** https://skylive-skl.github.io/memory-game/
 
 ## Возможности
 
@@ -26,7 +26,7 @@
 Нужен [Node.js](https://nodejs.org/) версии 20.19+ или 22.12+ (требование Vite).
 
 ```bash
-git clone <ссылка-на-репозиторий>
+git clone https://github.com/skylive-skl/memory-game.git
 cd memory-game
 git checkout memory-game
 npm install
